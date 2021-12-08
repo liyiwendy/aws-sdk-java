@@ -18,8 +18,16 @@ import java.nio.charset.StandardCharsets;
 
 import static org.mockito.Mockito.when;
 
+/**
+ * Test Lambda invoker with customer serializer
+ * https://github.com/aws/aws-sdk-java/issues/1743
+ */
 public class LambdaInvokerFactoryTest {
 
+    /**
+     * Test Lambda invoker with customer serializer and check the lambda input string
+     * to be serialized as expected.
+     */
     @Test
     public void testInvoke() {
         CustomLambdaSerde serde = new TestSerde();
