@@ -10,8 +10,16 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for transfer manager builder with the progress listener
+ *
+ * https://github.com/aws/aws-sdk-java/issues/2650
+ */
 public class TransferManagerBuilderTest {
 
+    /**
+     * Test for transfer manager builder with the put object progress listener
+     */
     @Test
     public void testPutObjectProgressListenerBuilder(){
         ProgressListener listener = new ProgressListener.NoOpProgressListener();
@@ -19,6 +27,9 @@ public class TransferManagerBuilderTest {
         assertEquals(listener, manager.getPutObjectRequestProgressListener());
     }
 
+    /**
+     * Test for transfer manager builder with the upload progress listener
+     */
     @Test
     public void testUploadProgressListenerBuilder(){
         S3ProgressListener listener = new S3ProgressListener() {
